@@ -13,8 +13,10 @@
   <script>
     window.$docsify = {
       coverpage: true, // 设置封面
-      loadSidebar: true, // 设置导航栏
-      loadNavbar: true, // 设置侧边栏
+      onlyCover: true, // 只显示封面
+      loadSidebar: true, // 设置侧边栏
+      subMaxLevel: 3, //侧边栏显示当前页面的目录(标题)
+      loadNavbar: true, // 设置导航栏
       // 完整配置参数
       search: {
         placeholder: '搜索', // 搜索提示框文字， 支持本地化，例子在下面
@@ -25,6 +27,9 @@
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
   
+  <!-- 引入搜索模块 -->
+  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+
   <!-- 添加一键拷贝代码-->
   <script src="//unpkg.com/docsify-copy-code"></script></script>
 

@@ -1,5 +1,3 @@
-## 蘑菇博客
-
 <p align=center>
   <a href="http://www.moguit.cn">
     <img src="./doc/images/gitee/favicon2.ico" alt="蘑菇博客" style="width:200px;height:200px">
