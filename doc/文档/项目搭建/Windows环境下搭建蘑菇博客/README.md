@@ -68,7 +68,7 @@ file:
 
 ## 5、配置RabbitMq
 
-RabbitMQ是一款比较优秀的消息中间件，在这里主要用于同步solr索引，redis缓存更新，以及邮件和验证码发送等功能。
+RabbitMQ是一款比较优秀的消息中间件，在这里主要用于同步solr索引和ElasticSearch索引，redis缓存更新，以及邮件和验证码发送等功能。
 
 关于配置，参考这篇博客：[蘑菇博客配置RabbitMQ](http://www.moguit.cn/#/info?blogUid=995e0fccd2b240aabd56a10a688e42d4)
 
