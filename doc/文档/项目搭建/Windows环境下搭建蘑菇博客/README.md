@@ -95,10 +95,10 @@ RabbitMQ是一款比较优秀的消息中间件，在这里主要用于同步sol
 提取码：ditj 
 ```
 
-七牛云：
+备用地址：
 
 ```
-http://image.moguit.cn/solr.zip
+http://picture.moguit.cn/blog/resource/java/solr.zip
 ```
 
 下载完成后，解压
@@ -131,10 +131,15 @@ http://image.moguit.cn/solr.zip
 
 window也可自行百度进行安装，或者直接下载我上传的压缩包
 
-七牛云地址：
+```
+链接：https://pan.baidu.com/s/1X1z47Osm_MBjwSBckhUmTQ 
+提取码：pnfp
+```
+
+备用地址：
 
 ```
-http://image.moguit.cn/ElasticSearch.zip
+http://picture.moguit.cn/blog/resource/java/ElasticSearch.zip
 ```
 
 下载完后，解压能看到这个目录
