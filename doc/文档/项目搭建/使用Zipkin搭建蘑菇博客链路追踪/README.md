@@ -35,6 +35,12 @@ tip：在使用zipkin链路追踪的时候，需要提前启动zipkin服务，�
 https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec
 ```
 
+备用地址
+
+```
+http://picture.moguit.cn/blog/resource/java/zipkin.jar
+```
+
 ### 运行
 
 ```shell
