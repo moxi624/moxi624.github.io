@@ -228,7 +228,9 @@ mvn clean install
 
  下面进行项目启动
 
-mogu_eureka -> mogu_picture -> mogu_sts -> mogu_admin -> mogu_web， 下面是启动成功的图片
+mogu_eureka -> mogu_monitor -> mogu_picture -> mogu_sms -> mogu_admin -> mogu_web
+
+下面是启动成功的图片
 
 ![image-20200209121636765](images/image-20200209121636765.png)
 

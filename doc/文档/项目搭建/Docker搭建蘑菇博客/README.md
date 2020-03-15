@@ -8,6 +8,8 @@
 
 如果你的服务器带宽只有1M，可以使用免费的百度云加速，加快页面渲染速度：[如何使用百度云加速提升网站访问速度](http://www.moguit.cn/#/info?blogUid=af053959672343f8a139ec27fd534c6c)
 
+tip：特别注意的是，因为镜像可能不是最新版本，因此推荐在按照本篇博客，安装好docker环境后，在按下面部署阿里云的方式，重新将前后端代码都重新部署一遍，确保服务器为最新代码
+
 如果你之前安装好了蘑菇博客的docker环境，修改的博客的源码，想要重新发布到自己服务器上：[蘑菇博客如何部署到阿里云服务器](http://moguit.cn/#/info?blogUid=89defe3f4a3f317cba9aa0cdb9ff879e)
 
 因为配置那些环境比较麻烦，（主要包括Nginx，Solr，Redis，Tomcat，Mysql，RabbitMQ）
