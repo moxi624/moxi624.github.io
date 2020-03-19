@@ -125,7 +125,7 @@ docker images
 ## 制作蘑菇博客docker容器
 
 ```
-docker run --privileged -d -it -h mogu_blog_2 --name mogu_blog_2 -v /etc/localtime:/etc/localtime:ro -p 11122:22 -p 15672:15672 -p 8600:8600 -p 9527:9527 -p 9528:9528 -p 6379:6379 -p 3306:3306 -p 80:80 -p 8080:8080 -p 8601:8601 -p 8602:8602 -p 8603:8603 -p 8604:8604 -p 8605:8605 -p 8606:8606 -p 8607:8607 -p 8761:8761 -p 5601:5601 moxi/mogu_blog /usr/sbin/init
+docker run --privileged -d -it -h mogu_blog_2 --name mogu_blog_2 -v /etc/localtime:/etc/localtime:ro -p 11122:22 -p 15672:15672 -p 8600:8600 -p 9527:9527 -p 9528:9528 -p 6379:6379 -p 3306:3306 -p 80:80 -p 8080:8080 -p 8601:8601 -p 8602:8602 -p 8603:8603 -p 8604:8604 -p 8605:8605 -p 8606:8606 -p 8607:8607 -p 8761:8761 -p 5601:5601 -p 465:465 moxi/mogu_blog /usr/sbin/init
 ```
 
 使用下面的命令，就能够制作成一个docker容器了，他会将上面写的一些端口号都映射到宿主机中，所以宿主机那些端口号不能别占用了哦。
@@ -148,7 +148,8 @@ docker run --privileged -d -it -h mogu_blog_2 --name mogu_blog_2 -v /etc/localti
 
 ```bash
 蘑菇Docker内部容器SSH连接：11122
-RabbitMQ：15672   
+RabbitMQ：15672
+Email: 465
 图片资源：8600   
 前端Web页面:9527    
 后端Admin页面：9528  
