@@ -10,6 +10,19 @@
 
 本文不再重复叙述 nginx、rabbitmq、mysql、solr以及redis的安装和启动，如果了解，请移步至上一篇博客~
 
+## 重新导入数据库脚本
+
+因为之前部署的docker环境中的数据库脚本可能不是最新的，因此在配置好docker环境后，我们需要远程连接上我们docker服务器中的Mysql，我们进入doc文件夹
+
+```
+mogu_blog.sql：代表mogu_blog数据库的文件
+mogu_blog_update.sql：代表mogu_blog在后续开发时候更新的字段）
+mogu_picture.sql：代表mogu_picture数据库文件
+mogu_picture_update.sql：代表mogu_picture在后续开发时候更新的字段）
+```
+
+首次导入数据库文件的时候，我们只需要执行mogu_blog.sql 和 mogu_picture.sql文件即可，如果你在之前已经部署了本项目，那么你需要在对应的update.sql文件中，打开后，从中找到没有的字段，复制上执行即可，里面每个字段的添加，都会有对应的日期提示，如果有些字段是你clone项目后添加的，那么你就需要执行它们一遍即可
+
 ## SpringBoot项目打包
 
 首先我们需要将项目拉取下来，然后进入到mogu_blog_v2目录
