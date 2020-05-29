@@ -15,6 +15,16 @@
 <img src="https://img.shields.io/badge/swagger-2.6.1-green" ></img>
 <img src="https://img.shields.io/badge/mybatis--plus-3.1.2-green" ></img></a></p>
 
+## 站点演示
+
+首先特别感谢阿里云提供的 [学生“在家实践” 计划](https://developer.aliyun.com/adc/student/?spm=a2c6h.14062461.J_7747362070.1.5b6933e1X3rvHS)，免费提供的6个月的2核4G 1M的服务器，所以就刚好以此用来做蘑菇博客的演示站点，同时我也在搭建的时候，顺便录制了一套视频：[利用阿里云免费服务器搭建个人博客](https://www.bilibili.com/video/BV1c5411b7EZ?t=17) ，感兴趣的小伙伴可以参考视频一起完成部署~
+
+> 【演示前端】：http://demoweb.moguit.cn/
+>
+> 【演示后端】：http://demoadmin.moguit.cn/
+>
+> 【演示账号】：mogu2018   mogu2018
+
 ## 项目地址
 
 目前项目托管在Gitee和Github平台上中，欢迎大家star 和 fork 支持~
