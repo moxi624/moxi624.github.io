@@ -22,8 +22,6 @@ IDE得装lombok插件：[IDEA中引入Lombok](http://moguit.cn/#/info?blogUid=4c
 
 maven安装成功后，记得添加阿里源，不然有些东西下载会非常慢的
 
- 
-
 ## 3、配置nginx
 
 nginx的下载直接到nginx官网下载即可
@@ -34,7 +32,13 @@ nginx的下载直接到nginx官网下载即可
 #蘑菇博客图片资源
 server {
  listen       8600;
- server_name  localhost;	
+ server_name  localhost;
+ add_header Access-Control-Allow-Origin *;
+ add_header Access-Control-Allow-Methods *;
+ add_header Access-Control-Allow-Headers *;
+ if ($request_method = 'OPTIONS') {
+   return 204;
+ }	
  location / {
 	root   D:\mogu_blog\data;
 	index  index.html index.htm;
@@ -48,9 +52,6 @@ server {
 
 ```bash
 #Data image url
-data:
-  image:
-    url: http://localhost:8600/
 file:
   upload:
     path: D:/mogu_blog/data
@@ -76,11 +77,11 @@ RabbitMQ是一款比较优秀的消息中间件，在这里主要用于同步sol
 
 ## 6、配置搜索模块
 
-目前蘑菇博客支持三种搜索模式的配置，分别是Solr、ElasticSearch和SQL，小伙伴可以按照自己的服务器配置进行相应的部署
+目前蘑菇博客支持三种搜索模式的配置，分别是Solr、ElasticSearch和SQL，小伙伴可以按照自己的服务器配置进行相应的部署。
 
-参考：[蘑菇博客切换搜索模式](http://moguit.cn/#/info?blogUid=4042b4f4088e4e37e95d9fc75d97298b) ，进行三种模式的切换
+参考：[蘑菇博客切换搜索模式](http://moguit.cn/#/info?blogUid=4042b4f4088e4e37e95d9fc75d97298b) ，进行三种模式的切换（三种方式选择一种，默认是SQL搜索）
 
-### **配置Solr**
+### **配置Solr（选择性安装）**
 
 关于window下配置蘑菇博客的solr，其实和我之前写的一篇博客大同小异，在这里我就不多叙述了，详情参考：[CentOS下Solr的安装和部署](http://www.moguit.cn/#/info?blogUid=7c7404c456904be5b7736238f28d2515)
 
@@ -125,7 +126,7 @@ http://picture.moguit.cn/blog/resource/java/solr.zip
 
  
 
-### **配置ElasticSearch**
+### **配置ElasticSearch（选择性安装）**
 
 关于ElasticSearch的配置和相关介绍，可以参考这篇博客：[Elasticsearch介绍和安装](http://moguit.cn/#/info?blogUid=ee342088a5d0f5b96bcb4582d9b563aa)
 
@@ -181,13 +182,13 @@ git clone https://gitee.com/moxi159753/mogu_blog_v2.git
 
 当然不设置也没关系，就是后面修改yml文件里面的配置即可
 
-## 8、配置zipkin链路追踪
+## 8、配置zipkin链路追踪（非必须）
 
 Zipkin是一个开源的分布式的链路追踪系统，每个微服务都会向zipkin报告计时数据，聚合各业务系统调用延迟数据，达到链路调用监控跟踪。
 
-参考博客：[使用Zipkin搭建蘑菇博客链路追踪](http://www.moguit.cn/#/info?blogUid=35bd93cabc08611c7f74ce4564753ef9)
+链路追踪服务可以选择安装，不过如果没有安装的话，在启动的时候会出现这样一个错误，不过该错误不会影响正常使用，可以忽略。
 
- 
+参考博客：[使用Zipkin搭建蘑菇博客链路追踪](http://www.moguit.cn/#/info?blogUid=35bd93cabc08611c7f74ce4564753ef9)
 
 ## 9、启动后端项目
 
@@ -234,13 +235,13 @@ mvn clean install
 
  下面进行项目启动
 
-mogu_eureka -> mogu_monitor -> mogu_picture -> mogu_sms -> mogu_admin -> mogu_web
+mogu_eureka -> mogu_picture -> mogu_sms -> mogu_admin -> mogu_web（上述模块是必须启动的）
+
+其它一些模块可以根据自己配置进行启动：如 mogu_monitor、SearchApplication、Zipkin等
 
 下面是启动成功的图片
 
-![image-20200209121636765](images/image-20200209121636765.png)
-
- 
+![image-20200209121636765](images/image-20200209121636765.png) 
 
 启动成功后，我们应该能够查看到对应的Swagger接口文档
 
@@ -301,8 +302,6 @@ npm run build
 Windows 用户若安装不成功，很大概率是`node-sass`安装失败，[解决方案](https://github.com/PanJiaChen/vue-element-admin/issues/24)。
 
 另外因为 `node-sass` 是依赖 `python`环境的，如果你之前没有安装和配置过的话，需要自行查看一下相关安装教程。
-
- 
 
 在启动项目成功后，会跳转到：localhost:9528 ，我们输入账号密码： admin, mogu2018 访问即可
 

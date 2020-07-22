@@ -122,23 +122,6 @@ vim application.yml
 
 ```yaml
 #Data image url
-data:
-  image:
-    url: http://your_ip:8600/
-file:
-  upload:
-    path: /home/mogu_blog/mogu_data/
-```
-
-特别注意的是：如果有的小伙伴自己有域名的话，并且已经配置了域名解析，即可换成对应的域名
-
-例如：我的 image.moguit.cn域名，映射到服务器的8600端口，那么我的配置就可以改成如下所示
-
-```yaml
-#Data image url
-data:
-  image:
-    url: http://image.moguit.cn/
 file:
   upload:
     path: /home/mogu_blog/mogu_data/
@@ -159,9 +142,6 @@ data:
   # mogu_web网址，用于第三方登录回调
   web:
     url: http://101.132.122.175:8603
-  # 静态资源映射，通过nginx
-  image:
-    url: http://101.132.122.175:8600/
 ```
 
 如果拥有域名的小伙伴，可以将配置改成如下形式
@@ -171,13 +151,10 @@ data:
 data:
   # 门户页面
   webSite:
-    url: http://www.moguit.cn:9527/#/
+    url: http://www.moguit.cn/#/
   # mogu_web网址，用于第三方登录回调
   web:
     url: http://101.132.122.175:8603
-  # 静态资源映射，通过nginx
-  image:
-    url: http://image.moguit.cn/
 ```
 
 同时在配置文件的最下面，还需要修改第三方注册需要的 clientId 和 ClientSecret：如果不清楚如何获取的小伙伴，可以查看我的这篇博客，在后面部分对ID的获取有相关介绍：[SpringBoot+Vue如何集成第三方登录JustAuth](http://moguit.cn/#/info?blogUid=8cbadb54967257f12d6cc7eb1a58a361)
@@ -210,8 +187,8 @@ netstat -tunlp
 tip：有些小伙伴反馈rabbitmq端口经常断开，所以在启动项目的时候，注意查看是否出现rabbitmq的报错信息，如果有的话，那就是因为rabbitmq没有正确启动而造成的，使用下面的命令启动即可
 
 ```bash
-# 启动rabbitmq
-systemctl start rabbitmq-server
+# 后台启动RabbitMQ
+rabbitmq-server -detached
 ```
 
 ### 查看Eureka注册中心
@@ -395,3 +372,15 @@ http://www.moguit.cn
 # 后台项目 admin  mogu2018
 http://admin.moguit.cn
 ```
+
+最后需要注意的是，但我们部署到服务器时，如果图片无法显示，请先查看系统配置的本地图片域名和七牛图片域名是否修改了，如果没有修改，可能会造成图片无法显示的问题
+
+如果没有域名的小伙伴，那么也可以写成ip的形式
+
+```
+http://youIp:8600/
+```
+
+如果拥有自己的域名，那么可以参考这篇博客进行配置：[蘑菇博客配置域名解析](http://www.moguit.cn/#/info?blogUid=06565868c0e86fe8125a9d55430cd266)
+
+![img](images/19450c0b93704f388f178f7c6346025d)

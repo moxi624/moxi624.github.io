@@ -8,13 +8,11 @@
 
 如果你的服务器带宽只有1M，可以使用免费的百度云加速，加快页面渲染速度：[如何使用百度云加速提升网站访问速度](http://www.moguit.cn/#/info?blogUid=af053959672343f8a139ec27fd534c6c)
 
-tip：特别注意的是，因为镜像中的代码可能不是最新版本，因此推荐在按照本篇博客，安装好docker环境后，需要在参考下面蘑菇博客部署阿里云这篇博客，重新将前后端代码都重新部署一遍，同时也记得把doc中的两个SQL文件也重新导入，确保服务器为最新代码
+> tip：特别注意，因为镜像中的代码可能不是最新版本，因此推荐在按照本篇博客，安装好docker环境后，需要在参考下面蘑菇博客部署阿里云这篇博客，重新将前后端代码都重新部署一遍，同时也记得把doc中的两个SQL文件也重新导入，确保服务器为最新代码
 
 如果你之前安装好了蘑菇博客的docker环境，修改的博客的源码，想要重新发布到自己服务器上：[蘑菇博客如何部署到阿里云服务器](http://moguit.cn/#/info?blogUid=89defe3f4a3f317cba9aa0cdb9ff879e)
 
-因为配置那些环境比较麻烦，（主要包括Nginx，Solr，Redis，Tomcat，Mysql，RabbitMQ）
-
-当然如果小伙伴喜欢自己配置的话，也可以不使用我搭建好的镜像，可以参考下面几篇博客哦，希望你也能够配置成功的~！
+因为配置那些环境比较麻烦，（主要包括Nginx，Solr，Redis，Tomcat，Mysql，RabbitMQ）当然如果小伙伴喜欢自己配置的话，也可以不使用我搭建好的镜像，可以参考下面几篇博客哦，希望你也能够配置成功的~！（想直接通过Docker部署的，可以忽略下面几步..）
 
 1、[CentOS下如何安装Nginx](http://www.moguit.cn/#/info?blogUid=e8d3e38ba35b4765ae128256eb44e341)
 
@@ -27,8 +25,6 @@ tip：特别注意的是，因为镜像中的代码可能不是最新版本，�
 5、[CentOS下RabbitMQ的安装和部署](http://www.moguit.cn/#/info?blogUid=2af543cdbd4342e1812e72687aac4580)
 
 6、[CentOS下ElasticSearch的安装和部署](http://moguit.cn/#/info?blogUid=ee342088a5d0f5b96bcb4582d9b563aa)
-
- 
 
 好了。下面我介绍的是用Docker快速搭建蘑菇博客。话不多说，下面我就直接进入正题。
 
@@ -61,8 +57,6 @@ gpgkey=https://mirrors.aliyun.com/docker-ce/linux/centos/gpg
 EOF
 ```
 
- 
-
 ###  安装docker
 
 ```
@@ -79,18 +73,14 @@ systemctl enable docker
 systemctl start docker
 ```
 
- 
-
 ## Docker login登录
 
-使用Docker login命令登录，需要输入刚刚注册的账号和密码
+使用Docker login命令登录，需要输入刚刚注册的账号和密码（ps：如果不想发布镜像到dockerhub，可以忽略）
 
 ```
 # 登录dockerhub
 docker login
 ```
-
- 
 
 ## 拉取蘑菇博客的镜像
 
@@ -102,9 +92,7 @@ docker pull moxi/mogu_blog
 
 ![image-20200209122416398](images/image-20200209122416398.png)
 
-如果拉取失败，或者出现超时的情况、或者拉取过慢，可以尝试使用下面的方法：
-
-### [CentOS7中Docker拉取镜像失败的解决方法](http://www.moguit.cn/#/info?blogUid=5296cfe28b35caa808a5387ff95734c7)
+如果拉取失败，或者出现超时的情况、或者拉取过慢，可以尝试使用下面的方法： [CentOS7中Docker拉取镜像失败的解决方法](http://www.moguit.cn/#/info?blogUid=5296cfe28b35caa808a5387ff95734c7)
 
 如果还是拉取速度很慢的话，推荐在早上的时候拉取镜像，因为DockerHub是国外的网站，早上的时候，他们美国这边都已经到了晚间了，基本不占用太多带宽，拉取速度会更快一些~
 
@@ -118,14 +106,12 @@ docker images
 
 ![image-20200209122441971](images/image-20200209122441971.png)
 
-好了，能看到刚刚拉取的镜像，大概有4.75G大，因为这里面包含了需要图片资源和项目的一些安装包，所以会比较大，后面的话，我会进行一些删减的，确保是最精简的。
-
- 
+好了，能看到刚刚拉取的镜像，大概有4.75G大（ps.. 现在因为装了很多东西..已经10多G了），因为这里面包含了需要图片资源和项目的一些安装包。
 
 ## 制作蘑菇博客docker容器
 
 ```
-docker run --privileged -d -it -h mogu_blog_2 --name mogu_blog_2 -v /etc/localtime:/etc/localtime:ro -p 11122:22 -p 15672:15672 -p 8600:8600 -p 9527:9527 -p 9528:9528 -p 6379:6379 -p 3306:3306 -p 80:80 -p 8080:8080 -p 8601:8601 -p 8602:8602 -p 8603:8603 -p 8604:8604 -p 8605:8605 -p 8606:8606 -p 8607:8607 -p 8761:8761 -p 5601:5601 -p 465:465 moxi/mogu_blog /usr/sbin/init
+docker run --privileged -d -it -h mogu_blog_2 --name mogu_blog_2 -v /etc/localtime:/etc/localtime:ro -p 11122:22 -p 15672:15672 -p 8600:8600 -p 9527:9527 -p 9528:9528 -p 6379:6379 -p 3306:3306 -p 80:80 -p 8080:8080 -p 8601:8601 -p 8602:8602 -p 8603:8603 -p 8604:8604 -p 8605:8605 -p 8606:8606 -p 8607:8607 -p 8761:8761 -p 5601:5601 -p 9411:9411 -p 465:465 moxi/mogu_blog /usr/sbin/init
 ```
 
 使用下面的命令，就能够制作成一个docker容器了，他会将上面写的一些端口号都映射到宿主机中，所以宿主机那些端口号不能别占用了哦。
@@ -148,13 +134,14 @@ docker run --privileged -d -it -h mogu_blog_2 --name mogu_blog_2 -v /etc/localti
 
 ```bash
 蘑菇Docker内部容器SSH连接：11122
-RabbitMQ：15672
-Email: 465
-图片资源：8600   
-前端Web页面:9527    
-后端Admin页面：9528  
-Redis:6379   
-Mysql:3306   
+RabbitMQ消息队列：15672
+Zipkin链路追踪: 9411
+发Email端口：465   
+图片资源：8600   
+前端Web页面:9527    
+后端Admin页面：9528  
+Redis:6379   
+Mysql:3306   
 Tomcat(里面部署的solr):8080
 HTTP端口：80
 Kibana端口：5601
@@ -205,7 +192,7 @@ passwd
 
 ## 启动对应的服务
 
-①、启动Nginx
+### 启动Nginx
 
 ```
 # 进入nginx的安装目录下
@@ -246,13 +233,11 @@ netstat -tunlp
 新开一个xshell连接，启动rabbitmq：
 
 ```
-# 启动RabbitMQ该命令会独占一个窗口
-systemctl start rabbitmq-server
+# 后台启动RabbitMQ
+rabbitmq-server -detached
 ```
 
- 
-
-②，启动redis
+### 启动redis
 
 ```
 # 进入redis的安装目录
@@ -265,13 +250,13 @@ cd /soft/redis/bin/
 netstat -tunlp
 ```
 
- 
-
-我们看到redis已经正常启动了
+ 我们看到redis已经正常启动了
 
 ![image-20200209130156442](images/image-20200209130156442.png)
 
-启动tomcat中的solr
+### 启动tomcat中的solr
+
+tip：如果配置了Solr作为全文检索，那么需要启动Solr，否则可以忽略这一步
 
 ```
 # 进入tomcat目录
@@ -282,13 +267,11 @@ cd /soft/tomcat/bin
 
 # 查看启动信息
 tail -f ../logs/catalina.out
-
- 
 ```
 
- 
+### 启动微服务
 
-④ 启动 mogu_eureka & mogu_picture & mogu_sms & mogu_admin & mogu_web
+启动 mogu_eureka & mogu_picture & mogu_sms & mogu_admin & mogu_web
 
 ```
 #进入到项目目录
@@ -308,6 +291,8 @@ mogu_eureka：服务发现
 mogu_picture: 图片服务器，用于图片上传和下载
 mogu_sms: 消息发送服务器，用于邮件和短信发送
 mogu_web：web端API接口服务
+mogu_monitor：监控模块
+mogu_zipkin：链路追踪模块
 vue_mogu_admin：VUE的后台管理页面
 vue_mogu_web：VUE的门户网站
 ```
@@ -335,7 +320,9 @@ cd mogu_eureka
 ./startup.sh
 ```
 
-不过需要注意的是：mogu_picture 和 mogu_web我们还需要修改一些配置，才能够启动成功
+不过需要注意的是：mogu_picture 、 mogu_web、mogu_sms 我们还需要修改一些配置，才能够启动成功
+
+> tip：因为镜像中的代码可能不是最新版本，因此推荐在按照本篇博客，安装好docker环境后，需要在参考下面蘑菇博客部署阿里云这篇博客，重新将前后端代码都重新部署一遍，同时也记得把doc中的两个SQL文件也重新导入，确保服务器为最新代码~
 
 ### mogu_picture修改配置
 
@@ -352,9 +339,6 @@ vim application.yml
 
 ```
 #Data image url
-data:
-  image:
-    url: http://your_ip:8600/
 file:
   upload:
     path: /home/mogu_blog/mogu_data/
@@ -389,7 +373,7 @@ data:
 
 同时在配置文件的最下面，还需要修改第三方注册需要的 clientId 和 ClientSecret：如果不清楚如何获取的小伙伴，可以查看我的这篇博客，在后面部分对ID的获取有相关介绍：[SpringBoot+Vue如何集成第三方登录JustAuth](http://moguit.cn/#/info?blogUid=8cbadb54967257f12d6cc7eb1a58a361)
 
-```
+```yml
 # 第三方登录
 justAuth:
   clientId:
@@ -400,6 +384,23 @@ justAuth:
     github: XXXXXXXXXXXXXXXXXXXXXX
 ```
 
+###  mogu_sms修改配置
+
+在mogu_sms中，主要修改的就是邮箱的配置，我们将发送邮件的信息改成自己的
+
+```yml
+#mail
+mail:
+    username: XXXXXXX@163.com
+    password: XXXXXXX #授权码开启SMTP服务里设置
+```
+
+注意，上面的password是授权码，授权码不是密码，以163邮箱为例，我们需要开启SMTP服务，然后设置授权码
+
+![image-20200722090457339](images/image-20200722090457339.png)
+
+
+
 修改完成后，我们启动对应的项目即可，最终我们需要启动的项目有： mogu_eureka，mogu_picture, mogu_sms, mogu_admin, mogu_web
 
 **tip:（用于以后使用图形化客户端进行连接）**
@@ -407,8 +408,6 @@ justAuth:
 mysql的账号和密码是 root  mogu2018
 
 redis的密码是 mogu2018
-
- 
 
 ## 验证是否后台是否启动成功
 
