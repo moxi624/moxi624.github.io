@@ -14,15 +14,15 @@ IDE得装lombok插件：[IDEA中引入Lombok](http://moguit.cn/#/info?blogUid=4c
 
 参考：[蘑菇博客切换七牛云存储](http://moguit.cn/#/info?blogUid=735ed389c4ad1efd321fed9ac58e646b)，配置文件的七牛云对象存储，及本地文件存储
 
-## 1、配置JDK
+## 配置JDK
 
 略
 
-## 2、配置Maven
+## 配置Maven
 
 maven安装成功后，记得添加阿里源，不然有些东西下载会非常慢的
 
-## 3、配置nginx
+## 配置nginx
 
 nginx的下载直接到nginx官网下载即可
 
@@ -57,9 +57,7 @@ file:
     path: D:/mogu_blog/data
 ```
 
- 
-
-## 4、配置redis
+## 配置redis
 
 去redis官网，进行下载：https://redis.io/
 
@@ -67,19 +65,17 @@ file:
 
 ![image-20200209121341204](images/image-20200209121341204.png)
 
-## 5、配置RabbitMq
+## 配置RabbitMq
 
 RabbitMQ是一款比较优秀的消息中间件，在这里主要用于同步solr索引和ElasticSearch索引，redis缓存更新，以及邮件和验证码发送等功能。
 
 关于配置，参考这篇博客：[蘑菇博客配置RabbitMQ](http://www.moguit.cn/#/info?blogUid=995e0fccd2b240aabd56a10a688e42d4)
 
- 
-
-## 6、配置搜索模块
+## 配置搜索模块
 
 目前蘑菇博客支持三种搜索模式的配置，分别是Solr、ElasticSearch和SQL，小伙伴可以按照自己的服务器配置进行相应的部署。
 
-参考：[蘑菇博客切换搜索模式](http://moguit.cn/#/info?blogUid=4042b4f4088e4e37e95d9fc75d97298b) ，进行三种模式的切换（三种方式选择一种，默认是SQL搜索）
+参考：[蘑菇博客切换搜索模式](http://moguit.cn/#/info?blogUid=4042b4f4088e4e37e95d9fc75d97298b) ，进行三种模式的切换（三种方式选择一种，默认是SQL搜索，可以配置ElasticSearch或者Solr作为全文检索）
 
 ### **配置Solr（选择性安装）**
 
@@ -169,7 +165,7 @@ http://localhost:5601/
 
 ![image-20200209121540189](images/image-20200209121540189.png)
 
-## 7、配置Mysql
+## 配置Mysql
 
 ```bash
 # 使用命令把项目clone下来
@@ -182,7 +178,25 @@ git clone https://gitee.com/moxi159753/mogu_blog_v2.git
 
 当然不设置也没关系，就是后面修改yml文件里面的配置即可
 
-## 8、配置zipkin链路追踪（非必须）
+## 配置Nacos注册中心和配置中心（Nacos分支需安装）
+
+Nacos服务注册和配置中心，如果使用的使用的是Eureka作为服务注册中心，那么直接跳过Nacos和Sentinel的安装过程。
+
+参考 [【SpringCloud】使用Nacos实现服务注册发现和配置中心等功能](http://moguit.cn/#/info?blogUid=e6e619349d31dded928c9265c5a9c672)，了解Nacos的使用
+
+参考 [蘑菇博客Nacos部署指南](http://moxi159753.gitee.io/learningnotes/#/./杂记/蘑菇博客Nacos安装指南/README?id=蘑菇博客nacos部署指南)，完成蘑菇博客中Nacos的安装和配置
+
+## 配置Sentinel流量控制（非必须）
+
+Sentinel存在于Nacos分支下，如果你的注册中心是Eureka，那么不需要配置
+
+随着微服务的流行，服务和服务之间的稳定性变得越来越重要。Sentinel 以流量为切入点，从流量控制、熔断降级、系统负载保护等多个维度保护服务的稳定性。
+
+参考[【SpringCloud】使用Sentinel实现熔断和限流](http://moguit.cn/#/info?blogUid=408e9c889ebf96a66af2adfdc258ba5f) ，了解Sentinel以及使用
+
+参考 [蘑菇博客Sentinel安装指南](http://moxi159753.gitee.io/learningnotes/#/./杂记/蘑菇博客Sentinel安装指南/README?id=蘑菇博客sentinel安装指南)，完成蘑菇博客中Sentinel的配置
+
+## 配置zipkin链路追踪（非必须）
 
 Zipkin是一个开源的分布式的链路追踪系统，每个微服务都会向zipkin报告计时数据，聚合各业务系统调用延迟数据，达到链路调用监控跟踪。
 
@@ -190,7 +204,7 @@ Zipkin是一个开源的分布式的链路追踪系统，每个微服务都会�
 
 参考博客：[使用Zipkin搭建蘑菇博客链路追踪](http://www.moguit.cn/#/info?blogUid=35bd93cabc08611c7f74ce4564753ef9)
 
-## 9、启动后端项目
+## 启动后端项目
 
 在全部配置完成后，就可以开始启动项目了，这里我用的编辑器是sts。目前有热心的码云朋友说IDEA不能正常启动项目，后面我经过排查，确实是存在这个文件，最近正在研究是哪块出错导致的。目前蘑菇博客的开发已经迁移到 IDEA中了，感谢[Jetbrains全家桶](https://www.jetbrains.com/?from=mogu_blog_v2)对开源的支持~。
 
@@ -212,30 +226,33 @@ mvn clean install
 关于项目的介绍
 
 ```bash
-- MoguBlog 是一款基于最新技术开发的多人在线、简洁的博客系统。
-- mogu_admin: 提供admin端API接口服务；
-- mogu_web：提供web端API接口服务；
-- mogu_eureka： 服务发现和注册
-- mogu_picture： 图片服务，用于图片上传和下载；
-- mogu_sms：消息服务，用于更新ElasticSearch、Solr索引、邮件和短信发送
-- mogu_monitor：监控服务，集成SpringBootAdmin用于管理和监控SpringBoot应用程序
-- mogu_spider：爬虫服务（目前还未完善）
-- mogu_spider：网关服务（目前还未完善）
-- mogu_zipkin：链路追踪服务，目前使用java -jar的方式启动
-- mogu_search：搜索服务，ElasticSearch和Solr作为检索工具，可插拔配置
-- mogu_utils: 是常用工具类；
-- mogu_xo: 是存放 Entity，Service，Dao层的
-- mogu_base: 是一些Base基类
-- mogu_config: 是存放一些配置
-- doc: 是蘑菇博客的一些文档和数据库文件
-- vue_mogu_admin：VUE的后台管理页面
-- vue_mogu_web：VUE的门户网站
-- nuxt_mogu_web：Nuxt的门户网站
+MoguBlog 是一款基于最新技术开发的多人在线、简洁的博客系统。
+mogu_admin: 提供admin端API接口服务；
+mogu_web：提供web端API接口服务；
+mogu_eureka： 服务发现和注册
+mogu_picture： 图片服务，用于图片上传和下载；
+mogu_sms：消息服务，用于更新ElasticSearch、Solr索引、邮件和短信发送
+mogu_monitor：监控服务，集成SpringBootAdmin用于管理和监控SpringBoot应用程序
+mogu_spider：爬虫服务（目前还未完善）
+mogu_spider：网关服务（目前还未完善）
+mogu_zipkin：链路追踪服务，目前使用java -jar的方式启动
+mogu_search：搜索服务，ElasticSearch和Solr作为全文检索工具，支持可插拔配置，默认使用SQL搜索
+mogu_commons：公共模块，主要用于存放Entity实体类、Feign远程调用接口、以及公共config配置
+mogu_utils: 是常用工具类；
+mogu_xo: 是存放 VO、Service，Dao层的
+mogu_base: 是一些Base基类
+doc: 是蘑菇博客的一些文档和数据库文件
+vue_mogu_admin：VUE的后台管理页面
+vue_mogu_web：VUE的门户网站
+uniapp_mogu_web：基于uniapp 和 colorUi 的蘑菇博客移动端门户页面（Nacos分支）
+nuxt_mogu_web：Nuxt的门户网站，主要用于支持SEO搜索引擎优化（目前还未完善）
 ```
 
  下面进行项目启动
 
 mogu_eureka -> mogu_picture -> mogu_sms -> mogu_admin -> mogu_web（上述模块是必须启动的）
+
+> 如果是Nacos版本：需要启动  mogu_picture -> mogu_sms -> mogu_admin -> mogu_web
 
 其它一些模块可以根据自己配置进行启动：如 mogu_monitor、SearchApplication、Zipkin等
 
@@ -270,7 +287,7 @@ web端接口文档
 
 ![image-20200209121727626](images/image-20200209121727626.png)
 
-## 10、启动前端项目
+## 启动前端项目
 
 前端项目使用的是Vue编写的，所以在这之前，需要下载好nodejs，因为nodejs里的npm模块是用于管理vue项目中的依赖，就类似于maven一样
 
