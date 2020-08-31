@@ -18,13 +18,19 @@
 
 2、[CentOS下Rdeis的安装和部署](http://www.moguit.cn/#/info?blogUid=d0e2c4337d7a4a85b176834c8c674fdf)
 
-3、[CentOS下Solr的安装和部署](http://www.moguit.cn/#/info?blogUid=7c7404c456904be5b7736238f28d2515)
+3、[CentOS下Solr的安装和部署](http://www.moguit.cn/#/info?blogUid=7c7404c456904be5b7736238f28d2515)（可选）
 
 4、[CentOS下Mariadb的安装和部署](http://www.moguit.cn/#/info?blogUid=d5b6dff48e5d42b1afcbf6ab591bdab1)
 
-5、[CentOS下RabbitMQ的安装和部署](http://www.moguit.cn/#/info?blogUid=2af543cdbd4342e1812e72687aac4580)
+5、[CentOS7下RabbitMQ的安装步骤](http://www.moguit.cn/#/info?blogUid=f346267364024e78844d459be2f6f528)
 
-6、[CentOS下ElasticSearch的安装和部署](http://moguit.cn/#/info?blogUid=ee342088a5d0f5b96bcb4582d9b563aa)
+6、[CentOS下ElasticSearch的安装和部署](http://moguit.cn/#/info?blogUid=ee342088a5d0f5b96bcb4582d9b563aa)（可选）
+
+7、[Elasticsearch介绍和安装](http://moguit.cn/#/info?blogUid=ee342088a5d0f5b96bcb4582d9b563aa)（可选）
+
+8、[CentOS下安装Nacos](http://moguit.cn/#/info?blogUid=7a7ad19472d53147150eb7fdb0978bb2)（Nacos分支需要）
+
+9、[CentOS下安装Sentinel](http://moguit.cn/#/info?blogUid=b100fde21ac0b61414dbaa74d2db7192)（Nacos分支需要）
 
 好了。下面我介绍的是用Docker快速搭建蘑菇博客。话不多说，下面我就直接进入正题。
 
@@ -444,7 +450,13 @@ http://your_ip:8603/swagger-ui.html
 
 ## 修改前端项目配置
 
-我们现在需要修改两个地方的配置，分别是：vue_mogu_admin 和 vue_mogu_web
+我们现在需要修改两个地方的配置，首先进入本地蘑菇博客的源码目录 ，然后找到下面的文件夹，分别是：vue_mogu_admin 和 vue_mogu_web
+
+>tip：以下配置的修改，需要在我们本地的编辑器下进行修改，修改完成后在打包发送到服务器
+>
+>也就是我们下载的源码目录，注意不是在linux服务器下的dist文件夹内！！！
+
+![image-20200831155113527](images/image-20200831155113527.png)
 
 下面我们到 vue_mogu_web/config/目录下，修改prod.env.js文件
 
