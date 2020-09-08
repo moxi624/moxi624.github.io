@@ -32,27 +32,23 @@
 - Gitee地址：https://gitee.com/moxi159753/mogu_blog_v2
 - Github地址：https://github.com/moxi624/mogu_blog_v2
 
-## 运行要求
+##  运行配置
 
 蘑菇博客使用了一些监控的Spring Cloud组件，但是并不一定都需要部署，必须启动的服务包含
 
-```
-mogu-eureka`，`mogu-sms`，`mogu-picture`， `mogu-web`, `mogu-admin
-```
+`nacos`，`nginx`，`rabbitmq`， `redis`，`mysql`，`mogu-sms`，`mogu-picture`， `mogu-web`, `mogu-admin`
 
-其它的jar都可以不启动，也不影正常使用
+其它的服务都可以不启动，也不影正常使用，可以根据自身服务器配置来启动
 
 最低配置：1核2G `需要开启虚拟内存`
 
 推荐配置：2核4G
 
-> 【阿里云】 限量爆款 低至69元/年 [点我进入](https://www.aliyun.com/minisite/goods?userCode=w7aungxw) `(仅限新用户)`
+> 【阿里云】 限量爆款低至91.8元/年 [点我进入](https://www.aliyun.com/minisite/goods?userCode=w7aungxw)
 >
-> 【华为云】 1核2G 低至88元/年，2核4G 5M 仅需332元/年  [点我进入](https://activity.huaweicloud.com/discount_area_v5/index.html?fromacct=0410a9ff-25e4-49c6-858b-56cf2f86f07e&utm_source=aHc0OTI0NzI2MA==&utm_medium=cps&utm_campaign=201905) `(仅限新用户)`
+> 【腾讯云】十周年感恩回馈，1核2G云服务器首年95元 [点我进入](https://cloud.tencent.com/act/cps/redirect?redirect=1067&cps_key=4e9b8ce643afe47621493331d101dd6e&from=console)
 >
-> 【腾讯云】云产品限时秒杀，爆款1核2G云服务器，首年99元 [点我进入](https://cloud.tencent.com/act/cps/redirect?redirect=1054&cps_key=4e9b8ce643afe47621493331d101dd6e&from=console) `(仅限新用户)`
->
-> 【阿里云翼计划】 1核2G 5M / 年 (博主目前使用的) 仅需114元  [点我进入 ](https://promotion.aliyun.com/ntms/act/campus2018.html?spm=5176.10695662.1244717.1.641e5a06KpmU4A&accounttraceid=3ac1b990a4f445859080d2555566af8fiirr?userCode=w7aungxw&tag=share_component&share_source=copy_link?userCode=w7aungxw&tag=share_component&share_source=copy_link?userCode=w7aungxw&tag=share_component&share_source=copy_link) `(仅限学生或未满24岁的用户)`
+> 【阿里云翼计划】 轻量级应用服务器 1核2G 5M / 年 (博主目前使用的) 仅需114元 [点我进入 ](https://promotion.aliyun.com/ntms/act/campus2018.html?spm=5176.10695662.1244717.1.641e5a06KpmU4A&accounttraceid=3ac1b990a4f445859080d2555566af8fiirr?userCode=w7aungxw&tag=share_component&share_source=copy_link?userCode=w7aungxw&tag=share_component&share_source=copy_link?userCode=w7aungxw&tag=share_component&share_source=copy_link&userCode=w7aungxw&tag=share_component&share_source=copy_link)`(仅限学生或未满24岁的用户)`
 
 ## 关注&交流
 
@@ -61,3 +57,21 @@ mogu-eureka`，`mogu-sms`，`mogu-picture`， `mogu-web`, `mogu-admin
 |                QQ群（备注：蘑菇博客）                 |               QQ（备注：蘑菇博客）               |
 | :---------------------------------------------------: | :----------------------------------------------: |
 | <img src="./doc/images/qq/qqGroup.png" width="200" /> | <img src="./doc/images/qq/qq.png" width="200" /> |
+
+## 视频教程
+
+特别感谢 [俺是程序狮](https://space.bilibili.com/277038643) 在B站上给蘑菇博客录制的视频教程，课程讲的非常细致，手把手带着开发博客系统，感兴趣的小伙伴可以去学习和支持一下~
+
+- [项目介绍](https://www.bilibili.com/video/BV1Si4y1u7H4)
+- [结构介绍与本地Nginx本地图片服务器启动](https://www.bilibili.com/video/BV1AA411e7W5)
+- [mysql脚本准备](https://www.bilibili.com/video/BV1kv411v7ND)
+- [后台服务启动](https://www.bilibili.com/video/BV1Nv411i7wu)
+- [RabbitMQ启动](https://www.bilibili.com/video/BV1mD4y1U7GT)
+- [前端项目启动](https://www.bilibili.com/video/BV1B541187Ez)
+- [后台管理系统的前端工程结构介绍](https://www.bilibili.com/video/BV1D54y1U78F)
+- [后台管理系统登录页](https://www.bilibili.com/video/BV1854y127d6)
+- [后台管理系统登录页2](https://www.bilibili.com/video/BV1DD4y1d7Tx)
+- [登录页请求处理](https://www.bilibili.com/video/BV1aT4y1w7Ux)
+- [前端发起登录认证](https://www.bilibili.com/video/BV1Rp4y1Y7fj)
+- [vuerouter路由配置](https://www.bilibili.com/video/BV14A411n72S)
+- .....

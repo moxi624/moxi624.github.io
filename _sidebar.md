@@ -7,7 +7,8 @@
   - 项目搭建
     - [蘑菇博客常见问题汇总](doc/文档/项目搭建/蘑菇博客常见问题汇总/README.md)
     - [Windows环境下搭建蘑菇博客](doc/文档/项目搭建/Windows环境下搭建蘑菇博客/README.md)
-    - [Docker搭建蘑菇博客](doc/文档/项目搭建/Docker搭建蘑菇博客/README.md)
+    - [Docker搭建蘑菇博客(Eureka版)](doc/文档/项目搭建/Docker搭建蘑菇博客(Eureka版)/README.md)
+    - [Docker搭建蘑菇博客(Nacos版)](doc/文档/项目搭建/Docker搭建蘑菇博客(Nacos版)/README.md)
     - [蘑菇博客Nacos安装指南](doc/文档/项目搭建/蘑菇博客Nacos安装指南/README.md)
     - [蘑菇博客Sentinel安装指南](doc/文档/项目搭建/蘑菇博客Sentinel安装指南/README.md)
     - [蘑菇博客QQ小程序发布指南](doc/文档/项目搭建/蘑菇博客QQ小程序发布指南/README.md)
