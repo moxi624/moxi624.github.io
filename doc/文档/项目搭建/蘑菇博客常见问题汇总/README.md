@@ -123,3 +123,64 @@ npm install --registry=https://registry.npm.taobao.org
 然后保存，刷新页面或者重新登录后，就能够看到我们添加后的菜单了~，如果出现以下问题，那么说明没有添加按钮。
 
 ![image-20200520105822131](images/image-20200520105822131.png)
+
+
+
+## 7、前端用户登录失败
+
+前端使用账号或者密码登录时，出现失败的情况
+
+![image-20200912091410558](images/image-20200912091410558.png)
+
+正常的情况下，登录成功跳转到下面这样一个URL下
+
+```bash
+http://www.moguit.cn/#/?token=e76ead985e094b7f97aa6ffbab6dd9b6
+```
+
+前面就是网站名称，后面就是登录成功返回的token，但是有的小伙伴登录成功后，是下面这样的URL
+
+```bash
+http://www.moguit.cn/#/
+```
+
+也就是没有返回token信息的，这个其实还是配置文件的问题，首先确定你是域名访问还是IP访问的，以域名访问为例，我们首先到 mogu_web项目下的配置文件中，从Nacos找到 mogu_web_prod.yaml
+
+![image-20200912091858678](images/image-20200912091858678.png)
+
+我们找到这个配置文件，然后把门户页面改成你项目的主页
+
+```bash
+data:
+  # 门户页面
+  webSite:
+    url: http://www.moguit.cn/#/
+```
+
+如果你是通过Ip的方式访问的，还没有备案的域名，那么就需要改成ip的方式
+
+```bash
+data:
+  # 门户页面
+  webSite:
+    url: http://127.0.0.1:9527/#/
+```
+
+修改完成后，将mogu_web打包，然后发布到后台中
+
+然后我们在到 vue_mogu_web项目下，我们需要修改 config/prod.env.js 文件
+
+![image-20200912092211840](images/image-20200912092211840.png)
+
+然后在根据自己是否有域名的情况，选择两种配置方式
+
+```bash
+// 如果有域名使用这个
+VUE_MOGU_WEB: '"http://nacosweb.moguit.cn"',
+```
+
+```bash
+// 如果没有域名使用这个
+VUE_MOGU_WEB: '"http://120.78.126.96:8602"',
+```
+
