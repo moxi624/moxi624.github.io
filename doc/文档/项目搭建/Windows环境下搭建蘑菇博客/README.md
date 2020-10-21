@@ -399,8 +399,6 @@ npm run dev
 npm run build
 ```
 
- 
-
 下面是启动成功的界面，跳转到： localhost:9527
 
 ![image-20200209121819581](images/image-20200209121819581.png)
@@ -424,3 +422,4 @@ tip：特别注意！！！！！首次部署完成，如果图片无法显示�
 关于服务器的配置，使用的是[1核2G的学生价格服务器](https://promotion.aliyun.com/ntms/act/campus2018.html?spm=5176.10695662.1244717.1.641e5a06KpmU4A&accounttraceid=3ac1b990a4f445859080d2555566af8fiirr?userCode=w7aungxw&tag=share_component&share_source=copy_link?userCode=w7aungxw&tag=share_component&share_source=copy_link?userCode=w7aungxw&tag=share_component&share_source=copy_link&userCode=w7aungxw&tag=share_component&share_source=copy_link&share_source=copy_link)，目前来说，在增加虚拟内存后，能够正常的运行项目，内存不够的小伙伴，可以参考这篇博客。[CentOS如何增加虚拟内存？](http://www.moguit.cn/#/info?blogUid=36ee5efa56314807a9b6f1c1db508871)
 
 好了，关于博客的配置就到这里了，如果有问题的话，欢迎提出~
+
