@@ -17,15 +17,14 @@
 
 因为我现在用的是window，所以我下载了windows版本，也就是 nacos-server.zip
 
-> 如果国内环境下载过慢，可以使用下面的这个地址
-> 链接：https://pan.baidu.com/s/1oTYQuqz1oMM5kTE_tl-8JQ 
-> 提取码：92gx 
+> 如果国内环境下载过慢，可以使用 [备用下载地址](https://wws.lanzous.com/i1rAmhrtroj)
+> 
 
 下载完成后，我们进行解压缩，然后进入 conf目录，打开 application.properties文件
 
 ![image-20200814144515174](images/image-20200814144515174.png)
 
-打开后，我们在文件的末尾添加mysql的配置信息，注意mysql的账号和密码
+打开后，我们在文件的末尾添加mysql的配置信息，注意mysql的账号和密码【注意查看是否已经添加】
 
 ```bash
 # mysql配置
@@ -63,6 +62,8 @@ db.password=root
 ![image-20200814151027589](images/image-20200814151027589.png)
 
 然后我们点击 配置列表 -> dev，即可查看到我们的配置文件了，如果我们需要修改配置的话，只需要点击编辑
+
+> 如果是生产环境的话，一般是使用 prod里面的配置文件
 
 ![image-20200814151141045](images/image-20200814151141045.png)
 

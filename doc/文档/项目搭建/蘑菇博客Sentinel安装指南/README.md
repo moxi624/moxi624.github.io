@@ -14,15 +14,19 @@ Hystrix存在的问题
 - 单独一个组件，可以独立出来
 - 直接界面化的细粒度统一配置
 
-更详细的介绍可以参考这篇博客，这里只是讲解一下Sentinel的安装过程
+本博客只提到Sentinel的安装过程，更详细内容参考这篇博客：[【SpringCloud】使用Sentinel实现熔断和限流](http://moguit.cn/#/info?blogUid=408e9c889ebf96a66af2adfdc258ba5f)
 
-[【SpringCloud】使用Sentinel实现熔断和限流](http://moguit.cn/#/info?blogUid=408e9c889ebf96a66af2adfdc258ba5f)
+同时如果想要了解Sentinel持久化到Nacos，参考这篇博客：[配置Sentinel规则持久化到Nacos中](http://www.moguit.cn/#/info?blogUid=6473a200c9986f45af2ae9f12534ec93)
+
+如果想要使用Feign配置Sentinel实现全局兜底异常，参考这篇博客：[Feign配置全局Sentinel流控异常和降级异常](http://www.moguit.cn/#/info?blogUid=e30a2ecaf4f1bbedcde6fecdf6b9fbb7)
 
 ## 安装Sentinel
 
 首先我们到Sentinel的[Github官网](https://github.com/alibaba/Sentinel/releases)，下载对应的jar包
 
 ![image-20200814152203586](images/image-20200814152203586.png)
+
+> 如果Github下载缓慢，可以使用 [备用下载地址](https://wws.lanzous.com/iXUolhrte2j)
 
 下载完成后，放到我们的Sentinel文件夹下
 
