@@ -11,11 +11,12 @@
     - [Windows环境下搭建蘑菇博客](doc/文档/项目搭建/Windows环境下搭建蘑菇博客/README.md)
     - [Docker搭建蘑菇博客(Eureka版)](doc/文档/项目搭建/Docker搭建蘑菇博客(Eureka版)/README.md)
     - [Docker搭建蘑菇博客(Nacos版)](doc/文档/项目搭建/Docker搭建蘑菇博客(Nacos版)/README.md)
+    - [蘑菇博客部署到阿里云服务器(Eureka版)](doc/文档/项目搭建/蘑菇博客部署到阿里云服务器(Eureka版)/README.md)
+    - [蘑菇博客如何部署到阿里云服务器(Nacos版)](doc/文档/项目搭建/蘑菇博客部署到阿里云服务器(Nacos版)/README.md)
     - [蘑菇博客使用ELK搭建分布式日志收集](doc/文档/项目搭建/蘑菇博客使用ELK搭建分布式日志收集/README.md)
     - [Windows环境下蘑菇博客Nacos安装指南](doc/文档/项目搭建/蘑菇博客Nacos安装指南/README.md)
     - [Windows环境下蘑菇博客Sentinel安装指南](doc/文档/项目搭建/蘑菇博客Sentinel安装指南/README.md)
     - [蘑菇博客QQ小程序发布指南](doc/文档/项目搭建/蘑菇博客QQ小程序发布指南/README.md)
-    - [蘑菇博客部署到云服务器](doc/文档/项目搭建/蘑菇博客部署到云服务器/README.md)
     - [Github Actions完成蘑菇博客持续集成](doc/文档/项目搭建/蘑菇博客使用GithubAction完成持续集成/README.md)
     - [蘑菇博客切换搜索模式](doc/文档/项目搭建/蘑菇博客切换搜索模式/README.md)
     - [蘑菇博客配置域名解析](doc/文档/项目搭建/蘑菇博客配置域名解析/README.md)
@@ -25,7 +26,6 @@
     - [蘑菇博客中的图片配置防盗链](doc/文档/项目搭建/如何给七牛云中的文件配置防盗链/README.md)    
     - [蘑菇博客集成第三方登录](doc/文档/项目搭建/使用JustAuth集成QQ登录/README.md)
     - [蘑菇博客启动增加自定义Banner](doc/文档/项目搭建/蘑菇博客启动增加自定义Banner/README.md)
-    
     - [蘑菇博客配置Minio对象存储](doc/文档/项目搭建/蘑菇博客配置Minio对象存储/README.md)
 
 - **其他**
