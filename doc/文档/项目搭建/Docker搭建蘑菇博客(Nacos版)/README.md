@@ -8,9 +8,11 @@
 
 如果你的服务器带宽只有1M，可以使用免费的百度云加速，加快页面渲染速度：[如何使用百度云加速提升网站访问速度](http://www.moguit.cn/#/info?blogUid=af053959672343f8a139ec27fd534c6c)
 
-> tip：特别注意，因为镜像中的代码可能不是最新版本，因此推荐在按照本篇博客，安装好docker环境后，需要在参考 [蘑菇博客部署阿里云(Nacos版)](http://www.moguit.cn/#/info?blogUid=ecde4ce178bdc1a241e9f9ddd9052013) 这篇博客，重新将前后端代码都重新部署一遍，同时也记得把doc中的两个SQL文件也重新导入，确保服务器为最新代码
+> tip：特别注意，因为镜像中的代码可能不是最新版本，因此推荐在按照本篇博客，安装好docker环境后，需要在参考 [蘑菇博客部署阿里云(Nacos版)](http://www.moguit.cn/#/info?blogUid=ecde4ce178bdc1a241e9f9ddd9052013) 这篇博客，重新将前后端代码都重新部署一遍，同时也记得把doc中的三个SQL文件也重新导入，确保服务器为最新代码
 
 如果你之前安装好了蘑菇博客的docker环境，修改的博客的源码，想要重新发布到自己服务器上：[蘑菇博客如何部署到阿里云服务器(Nacos版)](http://www.moguit.cn/#/info?blogUid=ecde4ce178bdc1a241e9f9ddd9052013)
+
+如果想使用Docker Compose 一键完成蘑菇博客的部署：参考 [DockerCompose一键部署蘑菇博客(Nacos版)](http://www.moguit.cn/#/info?blogOid=565)
 
 因为配置那些环境比较麻烦，（主要包括Nginx，Solr，Redis，Tomcat，Mysql，RabbitMQ）当然如果小伙伴喜欢自己配置的话，也可以不使用我搭建好的镜像，可以参考下面几篇博客哦，希望你也能够配置成功的~！（想直接通过Docker部署的，可以忽略下面几步..）
 
@@ -263,7 +265,11 @@ netstat -tunlp
 
 ![image-20200209130156442](images/image-20200209130156442.png)
 
-### 启动tomcat中的solr（可选）
+### 启动tomcat中的solr【非必须】
+
+如果没有安装Solr的话，参考 [CentOS下Solr的安装和部署](http://www.moguit.cn/#/info?blogUid=7c7404c456904be5b7736238f28d2515)
+
+如果想开启其它全文检索方式【ElasticSearch】：参考 [蘑菇博客切换搜索模式](http://www.moguit.cn/#/info?blogUid=4042b4f4088e4e37e95d9fc75d97298b)
 
 tip：如果配置了Solr作为全文检索，那么需要启动Solr，否则可以忽略这一步（默认使用的是SQL搜索）
 
@@ -459,7 +465,7 @@ mail:
 
 
 
-修改完成后，我们启动对应的项目即可，最终我们需要启动的项目有： mogu_picture, mogu_sms, mogu_admin, mogu_web
+修改完成后，我们启动对应的项目即可，最终我们需要启动的项目有： mogu_picture, mogu_sms, mogu_admin, mogu_web、mogu_gateway
 
 **tip:（用于以后使用图形化客户端进行连接）**
 
@@ -475,9 +481,17 @@ redis的密码是 mogu2018
 http://your_ip:8848/nacos
 ```
 
-如果我们看到下面四个服务都注册到eureka中，那说明启动成功
+如果我们看到下面五个服务都注册到Nacos中，那说明启动成功
 
-![image-20200903165638594](images/image-20200903165638594-1599124105900.png)
+- mogu_picture
+- mogu_sms
+- mogu_admin
+- mogu_web
+- mogu_gateway
+
+如下图所示
+
+![image-20201212144805069](images/image-20201212144805069.png)
 
 我们在通过访问下列swagger接口，测试接口是否正常
 
@@ -500,63 +514,69 @@ http://your_ip:8603/swagger-ui.html
 
 ## 修改前端项目配置
 
-我们现在需要修改两个地方的配置，分别是：vue_mogu_admin 和 vue_mogu_web\
+下面我们需要修改前端地址，如果不修改的话，默认是请求的是蘑菇演示环境的后台接口【！！所以这里切记】
 
->tip：以下配置的修改，需要在我们本地的编辑器下进行修改，修改完成后在打包发送到服务器,也就是我们下载的源码目录，注意不是在linux服务器下的dist文件夹内！！！
+![image-20201130110943750](images/image-20201130110943750.png)
 
-下面我们到 vue_mogu_web/config/目录下，修改prod.env.js文件
+我们现在需要修改两个地方的配置，分别是：vue_mogu_admin 和 vue_mogu_web 目录下
 
-![image-20200903165911938](images/image-20200903165911938-1599124105900.png)
+### 修改vue_mogu_admin配置
 
-把里面的ip地址换成你主机的地址即可
-
-```
-//配置线上环境
-VUE_MOGU_WEB: '"http://101.132.122.175:9527"',
-PICTURE_API: '"http://101.132.122.175:8602"',
-WEB_API: '"http://101.132.122.175:8603"',
-ELASTICSEARCH: '"http://101.132.122.175:8605"',
+```bash
+# 进入dist目录
+cd vue_mogu_admin/dist
+# 找到index.html【为了方便，可以复制到windows下面修改】
+vim index.html
 ```
 
-同理，在修改 vue_mogu_admin下的地址，把里面的ip地址，换成你服务器的ip即可
+然后把里面的ip地址，改成自己的 ip 即可
 
-![image-20200903165947652](images/image-20200903165947652-1599124105900.png)
+> 文件是被压缩的，可以使用在线格式化工具：[html在线格式化](https://tool.oschina.net/codeformat/html/)，优化后在进行编辑
 
-修改完成后，需要进行重新编译~ 打包~ 部署~
+![image-20201130105850074](images/image-20201130105850074.png)
 
-我们首先在 vue_mogu_admin 目录下，执行下列命令进行打包（打包过程中.....可能会遇到一些语法规范错误，请无视~）
+注意，上面 `BLOG_WEB_URL` 地址的修改的时候，如果你拥有域名的话，就不要使用IP了
 
-```
-# 安装依赖
-npm install --registry=https://registry.npm.taobao.org
-
-# 打包
-npm run build
-```
-
-打包完成后，会生成一个dist目录，我们将整个dist目录，压缩成 zip格式
-
-![image-20200209130425874](images/image-20200209130425874-1599124105901.png)
-
-然后使用xftp工具，丢入到我们的前端目录下，目录在 /home/mogu_blog/vue_mogu_admin
-
-![image-20200209130438506](images/image-20200209130438506-1599124105901.png)
-
-注意：如果该文件夹下存在 dist文件夹，我们需要将其删除，然后在解压
-
-然后使用下面命令进行解压
-
-```
-unzip dist.zip
+```bash
+// 有域名
+"BLOG_WEB_URL":"http://demoweb.moguit.cn"
+// 没有域名
+"BLOG_WEB_URL":"http://120.78.126.96:9527"
 ```
 
-同理的操作，在执行一下上述操作，将vue_mogu_web项目也进行打包，部署到 /home/mogu_blog/vue_mogu_web目录下即可
+修改完成后，在把修改后的文件，替换服务器上的 index.html 即可
+
+### 修改vue_mogu_web配置
+
+修改 vue_mogu_web的过程和上面一致
+
+```bash
+# 进入dist目录
+cd vue_mogu_web/dist
+# 找到index.html【为了方便，可以复制到windows下面修改】
+vim index.html
+```
+
+然后把里面的ip地址，改成自己的 ip 即可
+
+![image-20201130110112326](images/image-20201130110112326.png)
+
+注意，上面 `VUE_MOGU_WEB` 地址的修改的时候，如果你拥有域名的话，就不要使用IP了
+
+```bash
+// 有域名
+"BLOG_WEB_URL":"http://demoweb.moguit.cn"
+// 没有域名
+"BLOG_WEB_URL":"http://120.78.126.96:9527"
+```
+
+修改完成后，在把修改后的文件，替换服务器上的 index.html 即可
 
 ## 访问蘑菇博客项目
 
 ### 访问前端项目
 
-例如： 192.168.1.101:9527 
+例如： http://youip:9527 
 
 ![image-20201110155005003](images/image-20201110155005003.png)
 
@@ -568,10 +588,10 @@ tip：需要注意的是，如果图片无法正常显示，请先登录后台�
 
 ### 访问后端项目
 
- ip地址:9528  用户名和密码是： admin mogu2018
+120.78.126.96:9528       用户名和密码是： admin mogu2018 【如果登录不进去，请F12检查，请求的IP地址是否是自己的服务器，如果不是，那么参考前面修改前端项目配置，改成自己的服务器IP】
 
 ![image-20200209130547785](images/image-20200209130547785-1599124105901.png)
 
-## 总结：
+## 总结
 
 好了，到目前为止，蘑菇博客已经搭建完成。当然小伙伴并不是拉取来就能直接用的， 如果ip地址不一样的话，是不能直接使用的，后面的话，需要拉取源码后，修改对应的配置信息后，然后在打包部署，才能够使用的。
