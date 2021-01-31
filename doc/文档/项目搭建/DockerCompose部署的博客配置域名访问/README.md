@@ -151,10 +151,12 @@ data:
 修改完成后，我们需要重启一下我们的项目
 
 ```bash
-# 到docker compose下的 bin 目录
-cd /root/docker-compose/bin
-# 重启nginx
+# 到docker compose下的 yaml 目录
+cd /root/docker-compose/yaml
+# 重启
 docker-compose -f mogu_data.yml restart
+docker-compose -f vue_mogu_admin.yml restart
+docker-compose -f vue_mogu_web.yml restart
 ```
 
 重启完，我们尝试着访问下面的地址
