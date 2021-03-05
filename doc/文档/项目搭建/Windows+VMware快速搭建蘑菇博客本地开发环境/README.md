@@ -248,7 +248,7 @@ Zipkin是一个开源的分布式的链路追踪系统，每个微服务都会�
 I/O error on POSt request for "http://localhost:9411/api/v2/span" ：connect timeout
 ```
 
-到 **docker-compose/bin** 目录下，执行下面脚本安装 **zipkin**
+到 **docker-compose/yaml** 目录下，执行下面脚本安装 **zipkin**
 
 ```bash
 docker-compose -f zipkin.yml up -d
