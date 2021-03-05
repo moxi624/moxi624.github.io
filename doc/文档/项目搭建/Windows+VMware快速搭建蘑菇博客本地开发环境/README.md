@@ -88,9 +88,11 @@ Docker Compose是用来定义和运行多个Docker应用程序的工具。通过
 
 下载地址：[点我传送](https://wws.lanzous.com/iTHoIiuilvi)
 
-把下载到的文件使用Xftp工具，拷贝到 `/usr/local/bin/` 目录下
+把下载到的压缩文件解压后，然后使用Xftp工具，拷贝到虚拟机服务器上的 `/usr/local/bin/` 目录下
 
 ```bash
+# 进入到目录
+cd /usr/local/bin
 # 重命名
 mv docker-compose-Linux-x86_64  docker-compose
 # 加入执行权限
