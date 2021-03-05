@@ -274,7 +274,7 @@ http://192.168.177.150:9411/zipkin/
 
 参考[【SpringCloud】使用Sentinel实现熔断和限流](http://moguit.cn/#/info?blogUid=408e9c889ebf96a66af2adfdc258ba5f) ，了解Sentinel以及使用
 
-到 **docker-compose/bin** 目录下，执行下面脚本安装 **Sentinel**
+到 **docker-compose/yaml** 目录下，执行下面脚本安装 **Sentinel**
 
 ```bash
 docker-compose -f sentinel.yml up -d
