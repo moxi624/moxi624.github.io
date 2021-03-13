@@ -11,13 +11,13 @@
 
 ## 安装Nacos
 
-首先我们到Nacos的 [Github页面](https://github.com/alibaba/nacos/releases)，找到我们需要安装的版本
+首先我们到Nacos的 [Github页面](https://github.com/alibaba/nacos/releases)，找到我们需要安装的版本【**安装1.4.1版本**】
 
 ![image-20200814144224359](images/image-20200814144224359.png)
 
 因为我现在用的是window，所以我下载了windows版本，也就是 nacos-server.zip
 
-> 如果国内环境下载过慢，可以使用 [备用下载地址](https://wws.lanzous.com/i1rAmhrtroj)
+> 如果国内环境下载过慢，可以使用 [备用下载地址](https://wws.lanzous.com/inHTmmn2nhc)
 > 
 
 下载完成后，我们进行解压缩，然后进入 conf目录，打开 application.properties文件
