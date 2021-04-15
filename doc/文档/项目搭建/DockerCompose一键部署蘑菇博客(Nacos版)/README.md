@@ -21,9 +21,23 @@
 
 如果你的服务器带宽只有1M，可以使用免费的百度云加速，加快页面渲染速度：[如何使用百度云加速提升网站访问速度](http://www.moguit.cn/#/info?blogUid=af053959672343f8a139ec27fd534c6c)
 
+## 购买云服务器
+
+如果想要发布蘑菇博客让更多的人能够访问到，那么就需要提前购买好云服务器，小伙伴在挑选服务器的时候，可以点击下面链接领取优惠券后在下单~
+
+蘑菇博客使用了一些监控的 **SpringCloud** 组件，但是并不一定都需要部署，可以根据自身服务器配置来启动
+
+最低配置：1核2G 【[需开启虚拟内存](http://moguit.cn/#/info?blogOid=96)，可能会出现宕机情况】
+
+推荐配置：2核4G 【[活动特惠](https://www.aliyun.com/minisite/goods?userCode=w7aungxw)】
+
+> 【阿里云】云服务器双12狂欢特惠，1核2G 5M轻量级应用服务器114元/年【博主使用】 [点我传送](https://www.aliyun.com/minisite/goods?userCode=w7aungxw)
+>
+> 【腾讯云】云产品限时秒杀，爆款1核2G云服务器，首年99元（老用户重新用微信QQ注册即可） [点我进入](https://curl.qcloud.com/zry6xub9)
+
 ## 虚拟内存
 
-如果你的服务器内存也是2G的话，请务必先配置一下交换内存【推荐虚拟内存4G】：[CentOS如何增加虚拟内存](http://www.moguit.cn/#/info?blogUid=36ee5efa56314807a9b6f1c1db508871)
+如果小伙伴购买的云服务器内存也是2G的话，请务必先配置一下交换内存【推荐虚拟内存4G】：[CentOS如何增加虚拟内存](http://www.moguit.cn/#/info?blogUid=36ee5efa56314807a9b6f1c1db508871)
 
 ## 安装Docker
 

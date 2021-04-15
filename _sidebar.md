@@ -10,6 +10,7 @@
     - [蘑菇博客常见问题汇总](doc/文档/项目搭建/蘑菇博客常见问题汇总/README.md)
     - [Windows+VMware快速搭建蘑菇博客本地开发环境](doc/文档/项目搭建/Windows+VMware快速搭建蘑菇博客本地开发环境/README.md)
     - [Windows环境下搭建蘑菇博客](doc/文档/项目搭建/Windows环境下搭建蘑菇博客/README.md)
+    - [蘑菇博客Golang版安装指南](doc/文档/项目搭建/蘑菇博客Golang版安装指南/README.md)
     - [DockerCompose一键部署蘑菇博客(Nacos版)](doc/文档/项目搭建/DockerCompose一键部署蘑菇博客(Nacos版)/README.md)
     - [DockerCompose部署的博客配置域名访问](doc/文档/项目搭建/DockerCompose部署的博客配置域名访问/README.md)
     - [Docker搭建蘑菇博客(Eureka版)](doc/文档/项目搭建/Docker搭建蘑菇博客(Eureka版)/README.md)

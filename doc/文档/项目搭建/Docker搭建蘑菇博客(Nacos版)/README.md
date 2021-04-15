@@ -36,6 +36,20 @@
 
 好了。下面我介绍的是用Docker快速搭建蘑菇博客。话不多说，下面我就直接进入正题。
 
+## 购买云服务器
+
+如果想要发布蘑菇博客让更多的人能够访问到，那么就需要提前购买好云服务器，小伙伴在挑选服务器的时候，可以点击下面链接领取优惠券后在下单~
+
+蘑菇博客使用了一些监控的 **SpringCloud** 组件，但是并不一定都需要部署，可以根据自身服务器配置来启动
+
+最低配置：1核2G 【[需开启虚拟内存](http://moguit.cn/#/info?blogOid=96)，可能会出现宕机情况】
+
+推荐配置：2核4G 【[活动特惠](https://www.aliyun.com/minisite/goods?userCode=w7aungxw)】
+
+> 【阿里云】云服务器狂欢特惠，1核2G 5M轻量级应用服务器114元/年【博主使用】 [点我传送](https://www.aliyun.com/minisite/goods?userCode=w7aungxw)
+>
+> 【腾讯云】云产品限时秒杀，爆款1核2G云服务器，首年99元（老用户重新用微信QQ注册即可） [点我进入](https://curl.qcloud.com/zry6xub9)
+
 ## 注册Docker账号
 
 首先大家先去DockerHub注册账号，用于拉取Docker镜像和存储镜像

@@ -218,7 +218,7 @@ export function searchBlog (params) {
 mogu_sms\src\main\java\com\moxi\mogublog\sms\listener\BlogListener.java
 ```
 
-把里面的solr注释全部打开，然后ElasticSearch相关接口注释
+把里面的ElasticSearch注释全部打开，然后Solr相关接口注释
 
 ```
 // 删除ElasticSearch博客索引
