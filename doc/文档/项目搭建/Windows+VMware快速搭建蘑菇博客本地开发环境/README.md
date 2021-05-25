@@ -86,7 +86,7 @@ docker network create mogu
 
 Docker Compose是用来定义和运行多个Docker应用程序的工具。通过Compose，可以使用YAML文件来配置应用程序需要的所有服务，然后使用一个命令即可从YML文件配置中创建并启动所有服务。
 
-下载地址：[点我传送](https://wws.lanzous.com/iTHoIiuilvi)
+下载地址：[点我传送](https://wwe.lanzoui.com/iTHoIiuilvi)
 
 把下载到的压缩文件解压后，然后使用Xftp工具，拷贝到虚拟机服务器上的 `/usr/local/bin/` 目录下
 

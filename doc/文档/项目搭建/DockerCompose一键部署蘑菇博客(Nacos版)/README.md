@@ -93,7 +93,7 @@ Docker Compose是用来定义和运行多个Docker应用程序的工具。通过
 https://github.com/docker/compose/releases
 ```
 
-> 如果Github下载过于缓慢，备用地址【下载后解压zip】：[点我传送](https://wws.lanzous.com/iTHoIiuilvi)
+> 如果Github下载过于缓慢，备用地址【下载后解压zip】：[点我传送](https://wwe.lanzoui.com/iTHoIiuilvi)
 
 然后选择Linux版本下载
 
