@@ -335,6 +335,23 @@ http://192.168.177.150:8080/solr
 
 关于ElasticSearch的配置和相关介绍，可以参考这篇博客：[ElasticSearch安装与介绍](http://moguit.cn/#/info?blogOid=375)
 
+首先我们需要修改一下以下配置
+
+```bash
+# 到宿主机上打开文件
+vim /etc/sysctl.conf
+# 增加这样一条配置，一个进程在VMAs(虚拟内存区域)创建内存映射最大数量
+vm.max_map_count=655360
+# 让配置生效
+sysctl -p
+```
+
+然后设置一下 **docker-compose/log** 日志的权限，
+
+```perl
+chmod 777 -R log
+```
+
 下面到 **docker-compose/yaml** ，执行下面脚本，安装ELK模块
 
 ```bash
